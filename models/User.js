@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { logger } from '@/lib/logger';
 
 const userSchema = new mongoose.Schema(
   {
@@ -90,10 +91,10 @@ userSchema.pre('save', async function (next) {
     // Hash کردن رمز عبور
     this.password = await bcrypt.hash(this.password, salt);
 
-    console.log('✅ رمز عبور Hash شد');
+    logger.debug('رمز عبور Hash شد');
     next();
   } catch (error) {
-    console.error('❌ خطا در Hash کردن رمز:', error);
+    logger.error('خطا در Hash کردن رمز', error);
     next(error);
   }
 });
@@ -103,10 +104,10 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
   try {
     // مقایسه رمز ورودی با رمز Hash شده
     const isMatch = await bcrypt.compare(candidatePassword, this.password);
-    console.log('🔍 نتیجه مقایسه رمز:', isMatch);
+    logger.debug('نتیجه مقایسه رمز:', isMatch);
     return isMatch;
   } catch (error) {
-    console.error('❌ خطا در مقایسه رمز:', error);
+    logger.error('خطا در مقایسه رمز', error);
     throw new Error('خطا در بررسی رمز عبور');
   }
 };

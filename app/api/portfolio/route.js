@@ -6,6 +6,7 @@ import {
   createRateLimitResponse,
 } from '@/lib/rate-limit';
 import { requirePermission } from '@/lib/auth-utils';
+import { logger } from '@/lib/logger';
 
 // GET - دریافت لیست پروژه‌ها
 export async function GET(request) {
@@ -70,7 +71,7 @@ export async function GET(request) {
       }
     );
   } catch (error) {
-    console.error('❌ خطا در دریافت پروژه‌ها:', error);
+    logger.error('خطا در دریافت پروژه‌ها', error);
 
     return NextResponse.json(
       {
@@ -150,7 +151,7 @@ export async function POST(request) {
       .collection('portfolio_projects')
       .insertOne(newProject);
 
-    console.log('✅ Portfolio project created:', result.insertedId);
+    logger.success('Portfolio project created:', result.insertedId);
 
     return NextResponse.json(
       {
@@ -167,7 +168,7 @@ export async function POST(request) {
       }
     );
   } catch (error) {
-    console.error('❌ خطا در ایجاد پروژه:', error);
+    logger.error('خطا در ایجاد پروژه', error);
 
     if (error.message.includes('Unauthorized')) {
       return NextResponse.json(

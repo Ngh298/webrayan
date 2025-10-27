@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDatabase } from '@/lib/mongodb';
+import { logger } from '@/lib/logger';
 
 export async function POST(request) {
   try {
@@ -102,7 +103,7 @@ export async function POST(request) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('❌ Register Error:', error);
+    logger.error('Register Error', error);
     return NextResponse.json(
       { message: error.message || 'خطا در ثبت‌نام. لطفاً دوباره تلاش کنید' },
       { status: 500 }

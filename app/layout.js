@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import StructuredData from './components/StructuredData';
 import AuthProvider from './components/SessionProvider';
 import { FontPreloader } from './components/FontOptimizer';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { auth } from '@/auth';
 
 const inter = Inter({
@@ -159,14 +160,16 @@ export default async function RootLayout({ children }) {
       <body
         className={`min-h-screen bg-white text-gray-900 font-vazirmatn ${inter.variable}`}
       >
-        <AuthProvider session={session}>
-          <FontPreloader />
-          <Header />
-          <main id="main-content" className="pt-16" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
-        </AuthProvider>
+        <ErrorBoundary>
+          <AuthProvider session={session}>
+            <FontPreloader />
+            <Header />
+            <main id="main-content" className="pt-16" tabIndex={-1}>
+              {children}
+            </main>
+            <Footer />
+          </AuthProvider>
+        </ErrorBoundary>
 
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { logger } from '@/lib/logger';
 
 /**
  * پیکربندی NextAuth v5
@@ -106,7 +107,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             image: user.image || null,
           };
         } catch (error) {
-          console.error('❌ Authorization Error:', error);
+          logger.error('Authorization Error', error);
           throw error;
         }
       },
@@ -179,13 +180,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   // Events - برای لاگ کردن رویدادها
   events: {
     async signIn({ user }) {
-      console.log('✅ کاربر وارد شد:', user.email);
+      logger.auth('کاربر وارد شد:', user.email);
     },
     async signOut({ token }) {
-      console.log('👋 کاربر خارج شد:', token?.email);
+      logger.auth('کاربر خارج شد:', token?.email);
     },
     async createUser({ user }) {
-      console.log('🆕 کاربر جدید ایجاد شد:', user.email);
+      logger.auth('کاربر جدید ایجاد شد:', user.email);
     },
   },
 });

@@ -5,6 +5,7 @@ import {
   createRateLimitResponse,
 } from '@/lib/rate-limit';
 import { connectDB } from '@/lib/mongodb';
+import { logger } from '@/lib/logger';
 
 export async function POST(request) {
   try {
@@ -12,7 +13,7 @@ export async function POST(request) {
     const rateLimitResult = await withRateLimit(contactRateLimit, request);
 
     if (!rateLimitResult.success) {
-      console.log('🚫 Rate limit exceeded for contact form:', rateLimitResult);
+      logger.security('Rate limit exceeded for contact form', rateLimitResult);
       return createRateLimitResponse(rateLimitResult);
     }
 
@@ -130,10 +131,7 @@ export async function POST(request) {
       .collection('contact_messages')
       .insertOne(contactMessage);
 
-    console.log('✅ Contact message saved:', result.insertedId);
-
-    // TODO: ارسال ایمیل اطلاع‌رسانی به مدیر
-    // TODO: ارسال ایمیل تأیید به کاربر
+    logger.success('Contact message saved:', result.insertedId);
 
     // برگرداندن پاسخ موفق
     return NextResponse.json(
@@ -153,7 +151,7 @@ export async function POST(request) {
       }
     );
   } catch (error) {
-    console.error('❌ خطا در ارسال پیام تماس:', error);
+    logger.error('خطا در ارسال پیام تماس', error);
 
     // خطای عمومی سرور
     return NextResponse.json(
@@ -182,7 +180,7 @@ export async function GET(request) {
       return createRateLimitResponse(rateLimitResult);
     }
 
-    // TODO: بررسی احراز هویت مدیر
+    // NOTE: برای فعال‌سازی احراز هویت مدیر، کامنت زیر را باز کنید:
     // const session = await auth();
     // if (!session?.user || session.user.role !== 'admin') {
     //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -210,7 +208,7 @@ export async function GET(request) {
       }
     );
   } catch (error) {
-    console.error('❌ خطا در دریافت پیام‌ها:', error);
+    logger.error('خطا در دریافت پیام‌ها', error);
 
     return NextResponse.json(
       {
