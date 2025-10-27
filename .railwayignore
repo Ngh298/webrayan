@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.git/
+.env*
+*.md
+DEPLOY_*.md
+START_HERE.md
+QUICK_LINKS.md
+README*.md
+TROUBLESHOOTING.md
+.vscode/
+.idea/
