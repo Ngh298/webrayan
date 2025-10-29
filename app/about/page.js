@@ -181,7 +181,7 @@ const AboutPage = () => {
                 itemScope
                 itemType="https://schema.org/ListItem"
               >
-                     <Link
+                <Link
                   href="/"
                   className="text-blue-700 hover:text-cyan-500 font-medium transition-colors"
                   itemProp="item"
@@ -380,12 +380,12 @@ const AboutPage = () => {
           </section>
 
           {/* Philosophy & Mission Section */}
-          <section className="py-20 bg-blue-50">
+          <section className="py-10 bg-blue-50">
             <div className="max-w-6xl mx-auto px-6">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Philosophy Quote */}
                 <div className="lg:order-1 ">
-                  <div className="bg-gradient-to-br from-blue-200 via-purple-50 to-indigo-200 py-16 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="bg-gradient-to-br from-blue-200 via-purple-50 to-indigo-200 py-5 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
                         <span
@@ -396,14 +396,38 @@ const AboutPage = () => {
                           💻
                         </span>
                       </div>
-
                       <blockquote className="text-xl text-blue-900 font-medium leading-relaxed ">
-                        کد نویسی فقط یک شغل نیست، یک هنره،
-                        <br />
+                        کد نویسی فقط یک شغل یا یک هدف نیست، یک هنره.                        <br />
                         <span className="text-blue-700">
-                          هر خط کد، قسمتی از رویای کسی رو زنده می‌کنه.
+                          هر خط کد، قسمتی از رویای من رو زنده می‌کنه.
                         </span>
                       </blockquote>
+
+                      {/* اضافه شدن نوشته‌های دفتر Ngh */}
+                      <div className="mt-8 text-blue-800 font-medium leading-relaxed space-y-4 text-center">
+                        <p>
+                          من <span className="text-fuchsia-600">Ngh</span> هستم،{' '}
+                          <span className="text-fuchsia-600">
+                            خالق دیجیتال واقعی
+                          </span>
+                          ، با هر خط کد، بخشی از جهان درونم را می‌سازم.
+                        </p>
+                        <p>
+                          برای من توسعه‌ی وب فقط یک شغل یا یک هدف نیست، لحظه‌ای
+                          است برای شکفتن، برای روییدن، برای گفتن{' '}
+                          <span className="text-fuchsia-600"> «من اینم»</span>  {' '}در{' '}
+                          <span className="text-fuchsia-600">دنیای صفر و یک ها</span>.
+                        </p>
+                        <p>
+                          من کد نمی زنم تا فقط صفحه‌ای را بسازم، کد می زنم تا
+                          معنا و زندگی تازه‌ای خلق کنم.
+                        </p>
+                        <p>
+                          مسیر من مسیر عشق، یادگیری و ایمان است، مسیر انسانی که
+                          تصمیم گرفته هر روز بهتر شود و هیچ‌وقت از رؤیایش جدا
+                          نشود.
+                        </p>
+                      </div>
 
                       <footer className="flex justify-center">
                         <div className="text-center mt-10">
@@ -414,6 +438,16 @@ const AboutPage = () => {
                           <span className="text-xl font-semibold text-blue-600 font-serif italic mb-10">
                             Ngh
                           </span>
+                          <br />
+                          <span className="font-semibold text-blue-600  italic mb-10">
+                            خالق دیجیتال واقعی
+                          </span>
+                          <br />
+                          <br />
+                          <p className=" mt-5 text-sm text-fuchsia-600">
+                            "خالق دیجیتال واقعی، نه شعاری ست و نه لقب، حقیقتی‌ست
+                            که از میان صفر و یک، جهانم را زنده می کند."{' '}
+                          </p>
                         </div>
                       </footer>
                     </div>

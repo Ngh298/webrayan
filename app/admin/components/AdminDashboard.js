@@ -156,7 +156,7 @@ export default function AdminDashboard() {
               </div>
               <div>
                 <h1 className="text-xl font-bold">پنل مدیریت</h1>
-                <p className="text-xs text-blue-100">به پنل مدیریت خوش آمدید</p>
+                <p className="text-xs text-blue-100">به پنل مدیریت خوش آمدید!</p>
               </div>
             </div>
           </div>
@@ -260,6 +260,7 @@ export default function AdminDashboard() {
                 onClick={handleSignOut}
                 className="w-full flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-red-500 to-pink-600 text-white hover:from-red-600 hover:to-pink-700 rounded-2xl transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
               >
+                                <span>خروج از حساب</span>
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -273,7 +274,6 @@ export default function AdminDashboard() {
                     d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                   />
                 </svg>
-                <span>خروج از حساب</span>
               </button>
             </div>
           </div>
@@ -284,10 +284,10 @@ export default function AdminDashboard() {
           {/* Welcome Section */}
           <div className="mb-10">
             <h2 className="text-4xl font-bold text-blue-900 mb-3">
-              سلام، {session?.user?.name || 'مدیر'}! 👋
+              سلام، {session?.user?.name || 'مدیر'} عزیز! 👋
             </h2>
             <p className="text-lg text-blue-700">
-              خوش آمدید به پنل مدیریت. آماده کار هستید؟
+              خوش آمدید به پنل مدیریت، آماده شروع هستید؟
             </p>
           </div>
 

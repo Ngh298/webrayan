@@ -112,6 +112,10 @@ export default function BlogPage() {
                 <span className="text-xl font-semibold text-purple-500 font-serif italic mb-10">
                   Ngh
                 </span>
+                <br />
+                <span className="font-semibold text-purple-600  italic mb-10">
+                            خالق دیجیتال واقعی
+                </span>
               </div>
             </footer>
           </div>

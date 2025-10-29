@@ -160,7 +160,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`min-h-screen bg-white text-gray-900 font-vazirmatn ${inter.variable}`}
       >
-        <ErrorBoundary>
+        {/* <ErrorBoundary /> */}
           <AuthProvider session={session}>
             <FontPreloader />
             <Header />
@@ -169,7 +169,7 @@ export default async function RootLayout({ children }) {
             </main>
             <Footer />
           </AuthProvider>
-        </ErrorBoundary>
+       
 
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

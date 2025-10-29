@@ -82,19 +82,26 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* لوگو سمت راست */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <div
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:from-cyan-500 hover:to-blue-500 font-sans tracking-tight hover:tracking-wide"
-                style={{
-                  fontFamily:
-                    "'Inter', 'SF Pro Display', system-ui, sans-serif",
-                }}
-              >
-                webrayandev.ir
-              </div>
-            </Link>
-          </div>
+        <div className="flex-shrink-0">
+  <Link href="/" className="flex items-center justify-center">
+    <div
+      className="flex flex-col items-center justify-center text-center
+                 bg-gradient-to-r from-blue-500 to-cyan-500 text-white
+                 px-4 py-2 rounded-lg font-bold transition-all duration-300
+                 hover:scale-105 hover:shadow-lg hover:from-cyan-500 hover:to-blue-500
+                 tracking-tight hover:tracking-wide"
+      style={{
+        fontFamily: "'Inter', 'Vazirmatn', 'SF Pro Display', system-ui",
+      }}
+    >
+      <span className="text-lg leading-snug">WebRayanDev.ir</span>
+      <span className="text-xs leading-3 font-bold tracking-wide mt-[2px]">
+        خلق جهان از میان صفر و  یک
+      </span>
+    </div>
+  </Link>
+</div>
+
 
           {/* منوهای اصلی وسط */}
           <div className="hidden lg:flex items-center space-x-6 space-x-reverse rtl:space-x-reverse">
